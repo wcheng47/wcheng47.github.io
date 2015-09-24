@@ -19,17 +19,17 @@ img{
 
 h3{
     margin-top: 0px;
-    padding-top: 0px;
-    font-size: 20pt;
+    padding-top: 20px;
     text-align: left;
     margin: 5px;
-    font-size: 30px;
+    font-size: 30pt;
     margin-left: 0px;
 }
 
 h4 {
-    margin-top: 0px;
-    padding-top: 0px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     font-size: 15pt;
     text-align: left;
     margin: 5px;
@@ -44,6 +44,7 @@ body{
     font-size: 20px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: black;
+    margin-bottom: 20px;
 }
 
 footer {

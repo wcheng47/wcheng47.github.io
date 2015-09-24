@@ -44,6 +44,11 @@ footer {
     bottom: 0;
 }
 
+a {
+    color: white;
+
+}
+
 .nav ul {
   list-style: none;
   text-align: center;

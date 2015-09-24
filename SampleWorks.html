@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="sampleworks.css">
+<script type="text/javascript" src="http://github.com/malsup/media/raw/master/jquery.media.js?v0.92"></script>
+<script type="text/javascript" src="jquery.metadata.js"></script>
 <title> Resume + Sample Works </title>
 </head>
 <body>
@@ -17,15 +19,10 @@
                     <li><a href = "./sampleworks.html" class = "navBarButton">Resume</a></li>
                 </ul>
             </div>
-            <div id = "firstpanel">
-                <div id = "leftcolumn">
-                </div>
 
-                <div id = "rightcolumn">
-                    <h3> Hello! </h3>
-                </div>
-            </div>
+            <a class="media" href="Resume.pdf">Resume Download</a>
         </div>
     </div>
 </body>
 </html>
+<script type="$('a.media').media({width:500, height:400});"></script>

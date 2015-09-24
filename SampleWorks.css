@@ -42,7 +42,7 @@ body{
     vertical-align: middle;
     color: white;
     font-size: 20px;
-    font-family: Times, serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: black;
 }
 
@@ -53,7 +53,8 @@ footer {
 
 a {
     color: white;
-
+    width: 100%;
+    margin: auto;
 }
 
 .nav ul {
@@ -125,7 +126,7 @@ margin-right: -4px;
     background-position: center 0px;
     z-index:-1;
     background-attachment: fixed;
-    opacity:0.25;
+    opacity:0.15;
     position:fixed;
 }
 

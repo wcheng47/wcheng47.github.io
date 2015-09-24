@@ -1,0 +1,48 @@
+*{
+    margin:0px; padding: 0px;
+}
+
+h1{
+    font-size: 36pt;
+    font-weight: bold;
+    color: #cc0000;
+    float: left;
+    font-family: sans-serif;
+    margin: 0px;
+}
+
+img{
+    float: right;
+    width:25%;
+    height:auto;
+}
+
+h2{
+    font-size: 12pt;
+    font-weight: bold;
+    color: #cc0000;
+    float: right;
+    text-align: right;
+    margin: 5px;
+}
+
+h3{
+    font-size: 18pt;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 5px;
+}
+
+body{
+    width: 800px;
+}
+
+#firstpanel{
+    clear: left;
+    float: left;
+    width: 500px;
+}
+
+#leftcolumn{
+    float: left;
+}

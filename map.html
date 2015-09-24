@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Stanford Map</title>
+<link rel="stylesheet" type="text/css" href="map.css">
+</head>
+<body>
+	<div id='frame'> 
+		<img src="map-m.gif" alt="Stanford Map M" style="top:-150px; left:-150px;" />
+	</div>
+	<input type="button" id="smaller" value="-" />
+	<input type="button" id="larger" value="+" />
+	
+	<input type="button" id="up" value="^" />
+	<input type="button" id="down" value="v" />
+	<input type="button" id="left" value="<" />
+	<input type="button" id="right" value=">" />
+
+
+	<script>
+	var isDragging = false;
+		var originalLeft;
+		var originalTop;
+		var originalMapTop;
+		var originalMapLeft;
+		var width;
+		var height;
+
+		function getTop() {
+			var map = document.getElementsByTagName("img")[0];
+			return parseInt(map.style.top);
+		}
+		function getLeft() {
+			var map = document.getElementsByTagName("img")[0];
+			return parseInt(map.style.left);
+		}
+		function smaller() {
+			var map = document.getElementsByTagName("img")[0];
+			if(map.alt == "Stanford Map M") {
+				var centerLeft = (getLeft() - (parseInt(width)/2))/parseInt(map.width);
+				var centerTop = (getTop() - (parseInt(height)/2))/parseInt(map.height);
+				map.src = "map-s.gif";
+				map.style.left = parseInt(width)/2 + centerLeft * 1283 + "px";
+				map.style.top = parseInt(height)/2 + centerTop * 997 +"px";			
+				map.alt = 'Stanford Map S';
+			}else if(map.alt == "Stanford Map L") {
+				var centerLeft = (getLeft() - (parseInt(width)/2))/parseInt(map.width);
+				var centerTop = (getTop() - (parseInt(height)/2))/parseInt(map.height);
+				map.src = "map-m.gif";
+				map.style.left = parseInt(width)/2 + centerLeft * 2047 + "px";
+				map.style.top = parseInt(height)/2 + centerTop * 1589 +"px";	
+				map.alt = 'Stanford Map M';
+			}else if(map.alt == "Stanford Map XL") {
+				var centerLeft = (getLeft() - (parseInt(width)/2))/parseInt(map.width);
+				var centerTop = (getTop() - (parseInt(height)/2))/parseInt(map.height);
+				map.src = "map-l.gif";
+				map.style.left = parseInt(width)/2 + centerLeft * 3063 + "px";
+				map.style.top = parseInt(height)/2 + centerTop * 2373 +"px";
+				map.alt = 'Stanford Map L';
+			}
+		}
+		function larger() {				
+			var map = document.getElementsByTagName("img")[0];
+			if(map.alt == "Stanford Map S") {
+				var centerLeft = (getLeft() - (parseInt(width)/2))/parseInt(map.width);
+				var centerTop = (getTop() - (parseInt(height)/2))/parseInt(map.height);
+				map.src = "map-m.gif";
+				map.style.left = parseInt(width)/2 + centerLeft * 2047 + "px";
+				map.style.top = parseInt(height)/2 + centerTop * 1589 +"px";
+				map.alt = "Stanford Map M";	
+			} else if(map.alt == "Stanford Map M") {				
+				var centerLeft = (getLeft() - (parseInt(width)/2))/parseInt(map.width);
+				var centerTop = (getTop() - (parseInt(height)/2))/parseInt(map.height);
+				map.src = "map-l.gif";
+				map.style.left = parseInt(width)/2 + centerLeft * 3063 + "px";
+				map.style.top = parseInt(height)/2 + centerTop * 2373 +"px";
+				map.alt = "Stanford Map L";
+			} else if(map.alt == "Stanford Map L") {
+				var centerLeft = (getLeft() - (parseInt(width)/2))/parseInt(map.width);
+				var centerTop = (getTop() - (parseInt(height)/2))/parseInt(map.height);
+				map.src = "map-xl.gif";
+				map.style.left = parseInt(width)/2 + centerLeft * 4084 + "px";
+				map.style.top = parseInt(height)/2 + centerTop * 3164 +"px";
+				map.alt = "Stanford Map XL";
+			}
+		}
+		function inFrame(x,y) {
+			return (x >= 30 && x <= 30 + parseInt(width) && y >= 30 && y <= 30 + parseInt(height));
+		}
+		
+		function handleMouseDown(evt) {
+			evt = (evt) ? evt : ((event) ? event : null);
+			if (inFrame(evt.clientX, evt.clientY)) {
+				originalLeft = evt.clientX;
+				originalTop = evt.clientY;
+				originalMapTop = getTop();
+				originalMapLeft = getLeft();
+				isDragging = true;
+				return false;
+			}
+		}
+
+		function handleMouseUp(evt) {
+			evt = (evt) ? evt : ((event) ? event : null);
+			if (isDragging) {
+				var map = document.getElementsByTagName("img")[0];
+				//map.style.left = evt.clientX - originalLeft + "px";
+				//map.style.top = evt.clientY - originalTop + "px";
+				isDragging = false;		
+
+				map.style.cursor="auto";	
+			}
+		}
+
+		function handleMouseMove(evt) {
+			evt = (evt) ? evt : ((event) ? event : null);
+			if (isDragging) {
+				var map = document.getElementsByTagName("img")[0];
+				map.style.left = originalMapLeft + (evt.clientX - originalLeft) + "px";
+				map.style.top = originalMapTop + (evt.clientY - originalTop) + "px";	
+				map.style.cursor="move";			
+				return false; 
+			}
+		}
+
+		function recenter(evt) {
+			evt = (evt) ? evt : ((event) ? event : null);
+			var map = document.getElementsByTagName("img")[0];
+			map.style.left = getLeft() + 25 - (evt.clientX) + parseInt(width)/2 +"px";
+			map.style.top = getTop() + 25 - (evt.clientY) + parseInt(height)/2 +"px";
+		}
+
+		function up() {
+			var map = document.getElementsByTagName('img')[0];
+			map.style.top = getTop() + parseInt(height)/2 + "px";
+		}
+
+		function down() {
+			var map = document.getElementsByTagName('img')[0];
+			map.style.top = getTop() - parseInt(height)/2 + "px";
+		}
+
+		function left() {
+			var map = document.getElementsByTagName('img')[0];
+			map.style.left = getLeft() + parseInt(width)/2 + "px";
+		}
+
+		function right() {
+			var map = document.getElementsByTagName('img')[0];
+			map.style.left = getLeft() - parseInt(width)/2 + "px";
+		}
+
+		window.onresize = function() {
+			var frame = document.getElementById("frame");
+			width = window.innerWidth/1.5 +"px";
+			height = window.innerHeight/1.5 +"px";
+			frame.style.height = height;
+			frame.style.width = width;
+		}
+
+		window.onload = function() {
+			var image1 = new Image();
+			image1 = "map-m.gif";
+			document.getElementById("smaller").onclick = smaller;
+			document.getElementById("larger").onclick = larger;
+			document.getElementById("up").onclick = up;
+			document.getElementById("down").onclick = down;
+			document.getElementById("left").onclick = left;
+			document.getElementById("right").onclick = right;
+			document.onmousedown = handleMouseDown;
+			document.onmouseup = handleMouseUp;
+			document.onmousemove = handleMouseMove;
+			var frame = document.getElementById("frame");
+			frame.ondblclick = recenter;
+			width = window.innerWidth/1.5 +"px";
+			height = window.innerHeight/1.5 +"px";
+			frame.style.height = height;
+			frame.style.width = width;
+
+		}
+		/*
+		* Sources: Lecture 08 notes
+		*/
+	</script>
+</body>
+</html>

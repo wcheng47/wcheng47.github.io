@@ -1,0 +1,71 @@
+*{
+    margin:0px; padding: 0px;
+}
+
+h1{
+    text-align: center;
+    width: 800px;
+    font-size: 36pt;
+    font-weight: bold;
+    float: left;
+    margin: 0px;
+}
+
+img{
+    width:295px;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+    height:auto;
+}
+
+h3{
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px;
+    width: 500px;
+}
+
+body{
+    vertical-align: middle;
+    width: 800px;
+    margin: auto;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    background-color: black;
+}
+
+#backgroundimage {
+    background-image: url("Cityscape.jpg");
+    background-size: auto 800px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 0px;
+    opacity: .4;
+}
+
+#firstpanel {
+    height: auto;
+    width: 800px;
+}
+
+#secondpanel {
+    float: left;
+    text-align: center;
+    height: auto;
+    width: 800px;
+}
+
+#leftcolumn{
+    width: 300px;
+    clear: left;
+    float: left;
+    text-align: center;
+}
+
+#rightcolumn{
+    margin: 5px;
+    width: 490px;
+    clear: right;
+    float: left;
+}

@@ -1,0 +1,153 @@
+*{
+    margin:0px; padding: 0px;
+}
+
+h1{
+    text-align: center;
+    width: 1200px;
+    font-size: 36pt;
+    font-weight: bold;
+    float: left;
+    margin-bottom: 0px;
+}
+
+img{
+    width: 180px;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+    height:auto;
+}
+
+h3{
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px;
+    font-size: 30px;
+    margin-left: 0px;
+    width: 800px;
+}
+
+body{
+    z-index: 0;
+    vertical-align: middle;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+    font-family: 'Oswald', sans-serif;
+    width: 125px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1em;
+    border-bottom: 1px solid #888;
+    border-spacing: 0px 10px 0px 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+.nav li {
+display: inline-block;
+margin-right: -4px;
+}
+
+.navbar {
+    min-width: 1200px;
+    height:100%;
+    width:100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    z-index:-1;
+    background-attachment: fixed;
+    opacity:0.25;
+    position:fixed;
+}
+
+#container {
+    top: 0px;
+    margin: auto;
+    width: 1200px;
+    height: 100%;
+}
+
+#backgroundimage {
+    background-image: url("./sampleworksbackground.jpg");
+    min-width: 1200px;
+    height:100%;
+    width:100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    z-index:-1;
+    background-attachment: fixed;
+    opacity:0.25;
+    position:fixed;
+}
+
+#firstpanel {
+    margin-top: 20px;
+    height: auto;
+    width: 1200px;
+}
+
+.contactInfo {
+    width: auto;
+}
+
+#secondpanel {
+    float: left;
+    margin: auto;
+    height: auto;
+    width: 1200px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#leftcolumn{
+    width: auto;
+    margin: 5px;
+    clear: left;
+    float: left;
+    text-align: right;
+}
+
+#rightcolumn{
+    margin-top: 0px;
+    margin: 5px;
+    width: 880px;
+    clear: right;
+    float: left;
+    text-align: left;
+}

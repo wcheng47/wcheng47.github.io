@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="jquery-1.11.3.min.js">
+</script>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="Home.css">
 <title> Home </title>
@@ -12,15 +14,112 @@
             <div class = "nav">
                 <div class = "navbar"> </div>
                 <ul>
-                    <li><a href = "./index.html" class = "navBarButton">Home</a></li>
-                    <li><a href = "./Biography.html" class = "navBarButton">Biography</a></li>
-                    <li><a href = "./Contact.html" class = "navBarButton">Contacts</a></li>
-                    <li><a href = "./SampleWorks.html" class = "navBarButton">Resume</a></li>
+                    <li><a id = "Home" class = "navBarButton">Home</a></li>
+                    <li><a id = "Biography" class = "navBarButton">Biography</a></li>
+                    <li><a id = "Contacts" class = "navBarButton">Contacts</a></li>
+                    <li><a id = "Resume" class = "navBarButton">Resume</a></li>
                 </ul>
             </div>
-            <p> “That’s been one of my mantras — focus and simplicity. Simple can be harder than complex; you have to work hard to get your thinking clean to make it simple.” </p>
-            <div id = "right">  - Steve Jobs </div>
+            <div id="homeContent">
+                <div id = 'quote'> “That’s been one of my mantras — focus and simplicity. Simple can be harder than complex; you have to work hard to get your thinking clean to make it simple.” </div>
+                <div id = "right">  - Steve Jobs </div>
+            </div>
+
+            <div id="biographyContent">
+                <div id = "firstpanel">
+                <div id = "leftcolumn">
+                    <img src = "./williamcheng.jpg" alt = "William Cheng">
+                </div>
+
+                <div id = "rightcolumn">
+                    <h3> Hello! </h3>
+                    My name is William Cheng and I'm a candidate for a bachelors degree in Computer Science under the College of Computing at the Georgia Institute of Technology. I have had 2 years of formal programming training in both Java and C++, and I additionally have further experience in front end web development. I am looking forward to creating new connections and contributing my skills and knowledge towards new and interesting endeavors. For the past 4 years I have been heavily involved in my robotics team - working as the director of programming to help organize and divide labor across the division.
+                </div>
+            </div>
+            </div>
+
+            <div id="contactsContent">
+                <div id = "secondpanel">
+                    <div class = "contactInfo"> Contact Info: </div>
+                    <div class = "contactInfo"> William Hon Cheng </div>
+                    <div class = "contactInfo"> Email: <a href="mailto:wcheng47@gatech.edu" target="_top"> wcheng47@gatech.edu </a></div>
+                    <div class = "contactInfo"> Github: <a href="https://github.com/wcheng47"> https://github.com/wcheng47.edu </a></div>
+                    <div class = "contactInfo"> Phone: 707-514-6706 </div>
+                </div>
+            </div>
+
+            <div id="resumeContent">
+                <h3> Resume </h3>
+                <a href="Resume.pdf">Resume Download</a>
+                <h3> Sample Works: </h3>
+
+                <h4> CS106B - Boggle </h4>
+                <p><a href="boggle.zip">Download</a></p>
+                <span class="description"> For this assignment, I wrote the code for the boggle.cpp, boggleplay.cpp and boggle.h files. The code uses recursive backtracking to find all possible word combinations from the 4x4 grid, checking each combination of letters to a dictionary.
+
+                The design was based off a standard design document, and the code was written in C++.   </span>
+
+                <h4> CS106B - Trail Blazer </h4>
+                <p><a href="trailblazer.zip">Download</a></p>
+                <span class="description">
+                    The TrailBlazer project houses various trail finding algorithms and one maze generating algorithm using kruskal's algorithm. The trail finding algorithms are as such: <p> Depth First Search: uses recursive backtracking to find a path between vertices. </p> <p> Breadth First Search: finds the shortest path between vertices. </p> <p>Dijkstra's algorithm: finds the shortest path between vertices, includes edge cost. </p> <p>A* Search: uses a heuristic function to estimate and find the shortest path between vertices which is usually quicker than Dijkstra's algorithm.</p>
+
+                    The design was based off a standard design document, and the code was written in C++.
+                </span>
+
+                <h4> CS193C - Stanford Map </h4>
+                <p><a href="./map.html"> Try </a></p>
+                <span class="description">
+                    The Stanford Map project allows you to zoom into larger or smaller version of Stanford's map, and scroll around by either dragging and dropping, or using the arrows on the side. The code itself is written exclusively through javascript.
+                </span>
+            </div>
         </div>
     </div>
 </body>
+<script>
+$(document).ready(function(){
+    $("#biographyContent").hide();
+    $("#contactsContent").hide();
+    $("#resumeContent").hide();
+    preload(['./Cityscape.jpg','./biographybackground.jpg','./contactsbackground.jpg', './sampleworksbackground.jpg']);
+
+    $("#Home").click(function(){
+        clickFunction("#homeContent", 'url("./Cityscape.jpg")', "#contactsContent", "#biographyContent", "#resumeContent");
+    });
+
+    $("#Biography").click(function(){
+        clickFunction("#biographyContent", 'url("./biographybackground.jpg")', "#homeContent", "#contactsContent", "#resumeContent");
+
+    });
+
+    $("#Contacts").click(function(){
+        clickFunction("#contactsContent", 'url("./contactsbackground.jpg")', "#homeContent", "#biographyContent", "#resumeContent");
+    });
+
+    $("#Resume").click(function(){
+        clickFunction("#resumeContent", 'url("./sampleworksbackground.jpg")', "#homeContent", "#biographyContent", "#contactsContent");
+    });
+
+    function clickFunction(shownContent, background, hiddenContent1, hiddenContent2, hiddenContent3){
+        $(hiddenContent1).fadeOut(function() {
+            $(backgroundimage).fadeOut();
+            $(hiddenContent2).fadeOut(function() {
+                $(hiddenContent3).fadeOut(function() {
+                    $(backgroundimage).css("background-image", background);
+                    $(backgroundimage).fadeIn(1000, function() {
+                        $(shownContent).fadeIn();
+                    });
+                });
+            });
+        });
+    }
+
+    function preload(backgroundImages) {
+        $(backgroundImages).each(function() {
+            $('<img/>')[0].src = this;
+        });
+    }
+});
+
+</script>
 </html>

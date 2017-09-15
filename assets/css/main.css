@@ -2000,7 +2000,7 @@
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0.5;
+			opacity: 0.1;
 			position: absolute;
 			top: 0;
 			width: 100%;
@@ -2520,7 +2520,7 @@
 		}
 
 		#header h1 {
-			color: rgba(255, 255, 255, 0.5);
+			color: rgba(255, 255, 255, 0.9);
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
@@ -2836,7 +2836,7 @@
 /* Touch */
 
 	body.is-touch .image.thumb:before {
-		opacity: 0.5 !important;
+		opacity: 1 !important;
 	}
 
 	body.is-touch .image.thumb:after {
